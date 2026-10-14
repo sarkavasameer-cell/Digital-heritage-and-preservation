@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Explore and help document the heritage of Moodbidri and Mangaluru, Karnataka.">
+  <title>Roots &amp; Stories | Digital Heritage Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="heritage.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="heritage-data.js"></script>
+</head>
+<body>
+  <div class="topline">A LIVING ARCHIVE OF COASTAL KARNATAKA <span>•</span> MOODBIDRI &amp; MANGALURU</div>
+  <header>
+    <a class="logo" href="#home"><span class="seal">R✳</span><span>ROOTS <small>&amp; STORIES</small></span></a>
+    <button id="menuBtn" aria-label="Toggle menu">☰</button>
+    <nav id="nav">
+      <a href="#places" data-en="Heritage places" data-kn="ಪಾರಂಪರಿಕ ಸ್ಥಳಗಳು">Heritage places</a>
+      <a href="#culture" data-en="Living culture" data-kn="ಜೀವಂತ ಸಂಸ್ಕೃತಿ">Living culture</a>
+      <a href="#gallery" data-en="Gallery" data-kn="ಚಿತ್ರಸಂಪುಟ">Gallery</a>
+      <a href="#map" data-en="Explore map" data-kn="ನಕ್ಷೆ">Explore map</a>
+      <a class="navcta" href="#contribute" data-en="Share a story ↗" data-kn="ಕಥೆ ಹಂಚಿಕೊಳ್ಳಿ ↗">Share a story ↗</a>
+      <button id="lang" type="button">ಕನ್ನಡ</button>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="heroimg" aria-hidden="true"></div>
+      <div class="shade"></div>
+      <div class="hero-copy">
+        <p class="eyebrow light">✳ &nbsp; OUR ROOTS • OUR STORIES • OUR FUTURE</p>
+        <h1 data-en="Every place holds<br><em>a thousand stories.</em>" data-kn="ಪ್ರತಿ ಸ್ಥಳದಲ್ಲೂ<br><em>ಸಾವಿರ ಕಥೆಗಳಿವೆ.</em>">Every place holds<br><em>a thousand stories.</em></h1>
+        <p data-en="Explore the sacred spaces, remarkable architecture and community memories that shape Moodbidri and Mangaluru." data-kn="ಮೂಡುಬಿದಿರೆ ಮತ್ತು ಮಂಗಳೂರಿನ ಪವಿತ್ರ ಸ್ಥಳಗಳು, ವಾಸ್ತುಶಿಲ್ಪ ಮತ್ತು ಸಮುದಾಯದ ನೆನಪುಗಳನ್ನು ಅನ್ವೇಷಿಸಿ.">Explore the sacred spaces, remarkable architecture and community memories that shape Moodbidri and Mangaluru.</p>
+        <div class="actions"><a class="btn" href="#places">Explore heritage ↓</a><a class="under" href="#about">Our purpose ↗</a></div>
+        <div class="hero-note">✳ &nbsp; A community-led digital heritage project</div>
+      </div>
+      <div class="hero-bottom"><span>DAKSHINA KANNADA, KARNATAKA</span><span>OUR PAST. OUR PRESENT. OUR FUTURE.</span></div>
+    </section>
+
+    <section class="intro wrap" id="about">
+      <p class="eyebrow">— &nbsp; A PLACE. A PEOPLE. A MEMORY.</p>
+      <div class="introgrid">
+        <h2>The past isn't<br>behind us. It's <em>within us.</em></h2>
+        <div>
+          <p>Stone basadis, painted chapels, historic buildings and everyday memories help keep local history close. This portal brings documented sources together and invites residents to contribute records that can be checked and preserved.</p>
+          <div class="values"><div><b>01</b>Explore places</div><div><b>02</b>Celebrate culture</div><div><b>03</b>Preserve memories</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="places wrap" id="places">
+      <div class="sectionhead">
+        <div><p class="eyebrow">— &nbsp; PLACES WITH STORIES</p><h2>Explore heritage</h2></div>
+        <p>Search places and community records. Read the sources, image attributions and evidence notes for each entry.</p>
+      </div>
+      <div class="filters">
+        <label class="search">⌕ <input id="search" placeholder="Search names, places, and historical stories..." aria-label="Search heritage"></label>
+        <select id="loc" aria-label="Filter by location"><option value="all">All locations</option><option value="Moodbidri">Moodbidri</option><option value="Mangaluru">Mangaluru</option></select>
+        <select id="cat" aria-label="Filter by category"><option value="all">All categories</option></select>
+        <select id="photoFilter" aria-label="Filter by photo availability">
+          <option value="all">All photos</option>
+          <option value="available">Verified photo available</option>
+          <option value="needed">Photo needed</option>
+        </select>
+        <select id="sort" aria-label="Sort heritage places">
+          <option value="featured">Featured order</option>
+          <option value="name-asc">Name A–Z</option>
+          <option value="name-desc">Name Z–A</option>
+          <option value="location">Location</option>
+        </select>
+        <button id="clearFilters" class="clear-filters" type="button">Clear filters</button>
+      </div>
+      <p id="resultCount" class="result-count" role="status" aria-live="polite"></p>
+      <div class="cards" id="cards" aria-live="polite"></div>
+      <p class="note">Photographs are linked to their image record and attribution. Where no exact-site photograph is verified, the card shows a search link instead of a substitute.</p>
+    </section>
+
+    <section class="culture" id="culture">
+      <div class="wrap culturegrid">
+        <div>
+          <p class="eyebrow light">— &nbsp; LIVING CULTURE</p>
+          <h2>Heritage is also<br><em>what we carry.</em></h2>
+          <p>Markets, family businesses, festivals, manuscripts and cultural practices deserve careful records too. This portal does not invent names or histories; it welcomes source-backed contributions from residents and community custodians.</p>
+          <a class="btn outline" href="#contribute">Contribute a memory ↗</a>
+        </div>
+        <div class="traditions">
+          <article><b>01</b><div><h3>Markets and shops</h3><p>Record names, dates and family histories only when supported by a resident, document or traceable source.</p></div><span>↗</span></article>
+          <article><b>02</b><div><h3>Festivals and traditions</h3><p>Share a practice, its locality, and who can help verify its history and meaning.</p></div><span>↗</span></article>
+          <article><b>03</b><div><h3>Manuscripts and memories</h3><p>Help identify collections, photographs and oral histories while respecting community permissions.</p></div><span>↗</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap gallery" id="gallery">
+      <div class="sectionhead">
+        <div><p class="eyebrow">— &nbsp; VERIFIED PHOTOGRAPHS &amp; ARCHIVES</p><h2>Places in view</h2></div>
+        <p>Current site photographs are distinguished from historical catalogue records. See each source and rights information before reuse.</p>
+      </div>
+      <div class="gallerygrid"></div>
+      <div class="archive-records"></div>
+      <p class="note">The Saavira Kambada archival image is labelled with its catalogue date, photographer, and rights statement. It is not presented as a modern photograph.</p>
+    </section>
+
+    <section class="wrap gallery" id="old-stories">
+      <div class="sectionhead">
+        <div><p class="eyebrow">— &nbsp; EVERYDAY HISTORY</p><h2>Markets, shops &amp; memories</h2></div>
+        <p>Community histories need names, dates, permissions and sources—not guesses.</p>
+      </div>
+      <div class="archive-feature"></div>
+      <div class="introgrid" style="margin-top:28px">
+        <h2>Help record an old shop.</h2>
+        <div><p>We welcome evidence about traditional shops, markets, family businesses, old houses, inscriptions and local practices. Tell us who shared the story and where a photograph or document came from.</p><a class="btn" href="#contribute">Contribute a local memory ↗</a></div>
+      </div>
+      <p class="note">Contributions are not public facts until a human editor verifies their sources and permissions.</p>
+    </section>
+
+    <section class="mapsection" id="map">
+      <div class="wrap mapgrid">
+        <div><p class="eyebrow">— &nbsp; FIND YOUR WAY</p><h2>Heritage, on<br><em>the map.</em></h2><p>Select a listed place to focus its verified map pin. Google Maps links remain available for places without verified coordinates.</p><p id="mapStatus" class="map-status" role="status" aria-live="polite"></p><div class="maplinks"></div><p class="map-attribution">Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a> · <a href="https://photon.komoot.io/" target="_blank" rel="noopener noreferrer">Photon geocoding</a></p></div>
+        <div class="mapbox"><div id="heritageMap" role="region" aria-label="Interactive map of heritage places in Moodbidri and Mangaluru"></div><p id="mapFallback" hidden>The interactive map is unavailable. Use the Google Maps links beside it.</p><div>● &nbsp; MOODBIDRI ↔ MANGALURU <span>DAKSHINA KANNADA</span></div></div>
+      </div>
+    </section>
+
+    <section class="wrap contribute" id="contribute">
+      <div><p class="eyebrow">— &nbsp; THE ARCHIVE NEEDS YOU</p><h2>Your memory<br>belongs <em>here.</em></h2><p>Have a family photograph, a local story or knowledge of a tradition? Help the community archive grow.</p><blockquote>“A story shared today can become heritage tomorrow.”</blockquote></div>
+      <form id="form">
+        <small>01 / COMMUNITY CONTRIBUTION</small><h3>Share a story</h3>
+        <label>Your name<input name="name" required autocomplete="name" placeholder="Name or community"></label>
+        <label>Specific place, street or community<input name="specificPlace" placeholder="A site or locality, if known"></label>
+        <div class="two">
+          <label>Story type<select name="type" required><option value="">Choose a category</option></select></label>
+          <label>Location<select name="location" required><option value="">Choose location</option><option>Moodbidri</option><option>Mangaluru</option><option>Nearby village</option><option>Other / not sure</option></select></label>
+        </div>
+        <label>Story title<input name="title" required placeholder="Give your story a title"></label>
+        <label>Your story<textarea name="story" required rows="4" placeholder="Share what you know and how it can be checked..."></textarea></label>
+        <label>Photographer or contributor (if different)<input name="photoCreator" placeholder="Name as it should appear in an attribution"></label>
+        <label class="consent"><input type="checkbox" required> I confirm this contribution is appropriate to share for review.</label>
+        <button class="btn" type="submit">Submit contribution ↗</button>
+        <p id="status" role="status"></p>
+        <p class="note">Demo only: text and optional small photographs are saved in this browser, not uploaded to an administrator.</p>
+      </form>
+    </section>
+
+    <section class="wrap admin">
+      <details><summary>ADMIN / DEMO DASHBOARD <span>Open local submissions +</span></summary>
+        <div class="admininside">
+          <div class="stats"><div>Local submissions<strong id="count">0</strong></div><div>Storage<strong>Browser only</strong></div><div>Server<strong>Not connected</strong></div></div>
+          <div id="entries">No contributions stored in this browser yet.</div>
+          <button id="clear" class="clearbtn" type="button">Clear demo submissions</button>
+          <p class="note">This is not a secure admin system. Real authentication and database storage require a backend.</p>
+        </div>
+      </details>
+    </section>
+  </main>
+  <footer>
+    <div class="footertop"><a class="logo" href="#home"><span class="seal">R✳</span><span>ROOTS <small>&amp; STORIES</small></span></a><p>Preserving the places, people and practices<br>that make coastal Karnataka unique.</p><a href="#home">BACK TO TOP ↑</a></div>
+    <div class="footerbottom"><span>© 2026 ROOTS &amp; STORIES · STUDENT PROJECT DEMO</span><span>MOODBIDRI + MANGALURU, KARNATAKA</span></div>
+  </footer>
+  <div class="lightbox" id="lightbox" hidden><button id="closeLight" aria-label="Close">×</button><img id="bigImage" alt=""><p id="caption"></p></div>
+  <script src="script.js"></script>
+</body>
+</html>

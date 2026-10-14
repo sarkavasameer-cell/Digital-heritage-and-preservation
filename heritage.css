@@ -1,0 +1,497 @@
+.heroimg {
+  background-image: linear-gradient(90deg, #102e2540, #102e2515), url("images/saavira-kambada-basadi.jpg") !important;
+}
+
+.photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #e3e8dc, #cbd5c8);
+}
+
+.photo-placeholder .placeholder-message {
+  position: static;
+  max-width: 230px;
+  background: #173f32;
+  color: #fff;
+  padding: 11px 14px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+.photo-placeholder .placeholder-search {
+  position: static;
+  display: inline-block;
+  margin-top: 9px;
+  padding: 4px;
+  color: var(--g);
+  background: transparent;
+  font-size: 11px;
+  letter-spacing: 0;
+  text-decoration: underline;
+}
+
+.gallery-fallback {
+  display: block;
+  padding: 18px;
+  color: var(--g);
+  font-size: 12px;
+}
+
+.gallery-fallback p,
+.archive-photo-fallback p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.archive-photo-fallback {
+  padding: 14px;
+  background: #e7e0d2;
+}
+
+.archive-photo-fallback a {
+  color: var(--terra);
+  font-size: 11px;
+  text-decoration: underline;
+}
+
+.gallerygrid button a {
+  position: absolute;
+  z-index: 2;
+  bottom: 8px;
+  left: 10px;
+  color: #fff;
+  font-size: 11px;
+  text-decoration: underline;
+}
+
+.card-description {
+  min-height: 92px;
+}
+
+.card footer .read-more {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--terra);
+  font: inherit;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.read-more:hover,
+.detail-source:hover,
+.image-attribution:hover {
+  text-decoration: underline;
+}
+
+.image-attribution {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.empty {
+  padding: 24px;
+  background: #fff;
+  color: var(--muted);
+  text-align: center;
+}
+
+.story-dialog {
+  width: min(760px, calc(100% - 28px));
+  max-height: min(88vh, 900px);
+  padding: 0;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: 0 24px 80px #102e2550;
+}
+
+.story-dialog::backdrop {
+  background: #102e25b8;
+}
+
+.story-dialog-content {
+  padding: clamp(22px, 5vw, 42px);
+}
+
+.story-dialog-content > h2 {
+  max-width: 85%;
+  margin: 0 0 8px;
+  color: var(--g);
+  font: 600 clamp(30px, 5vw, 44px)/1.15 var(--serif);
+}
+
+.dialog-close {
+  float: right;
+  border: 1px solid var(--line);
+  padding: 8px 12px;
+  color: var(--g);
+  background: transparent;
+  cursor: pointer;
+}
+
+.detail-local-name,
+.detail-section p,
+.detail-section li {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.detail-local-name {
+  color: var(--terra);
+}
+
+.detail-section {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  margin-top: 18px;
+}
+
+.detail-section h3 {
+  margin: 0;
+  color: var(--g);
+  font: 600 18px/1.4 var(--serif);
+}
+
+.detail-section p {
+  margin: 7px 0;
+}
+
+.detail-section ul {
+  padding-left: 20px;
+}
+
+.detail-source,
+.references a {
+  color: var(--terra);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.archive-records {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+
+.archive-records > h3 {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--g);
+  font: 600 24px var(--serif);
+}
+
+.archive-record {
+  background: var(--cream);
+  padding: 18px;
+}
+
+.archive-record h4 {
+  margin: 0 0 8px;
+  color: var(--g);
+  font: 600 18px/1.35 var(--serif);
+}
+
+.archive-thumb {
+  display: block;
+  width: 100%;
+  height: 190px;
+  margin-bottom: 14px;
+  object-fit: contain;
+  background: #e7e0d2;
+}
+
+.archive-photo {
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: #e7e0d2;
+  cursor: zoom-in;
+}
+
+.archive-record p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.contribution-photo {
+  display: block;
+  width: min(100%, 420px);
+  height: auto;
+  margin-top: 12px;
+}
+
+#form input[type="file"] {
+  width: 100%;
+  padding: 10px 0;
+}
+
+#form .consent input {
+  width: auto;
+}
+
+@media (max-width: 760px) {
+  .archive-records {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-records > h3 {
+    grid-column: auto;
+  }
+}
+
+.filters {
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.filters .search {
+  min-width: min(100%, 270px);
+  flex-basis: 100%;
+}
+
+.filters select {
+  min-height: 44px;
+}
+
+.clear-filters,
+.detail-map-button {
+  min-height: 44px;
+  border: 1px solid var(--g);
+  padding: 0 14px;
+  color: var(--g);
+  background: transparent;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.clear-filters:hover,
+.detail-map-button:hover:not(:disabled) {
+  color: white;
+  background: var(--g);
+}
+
+.detail-map-button:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+.result-count,
+.map-status {
+  min-height: 1.6em;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.mapbox #heritageMap {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+}
+
+.mapbox > #heritageMap {
+  position: relative;
+  inset: auto;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  letter-spacing: normal;
+}
+
+.mapbox > #mapFallback {
+  position: absolute;
+  z-index: 500;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  margin: 0;
+  padding: 10px 14px;
+  color: var(--ink);
+  background: white;
+}
+
+.mapbox .leaflet-control-attribution {
+  font-size: 9px;
+}
+
+.heritage-map-pin {
+  border: 0;
+  background: transparent;
+}
+
+.heritage-map-pin span {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border: 3px solid white;
+  border-radius: 50% 50% 50% 0;
+  background: var(--terra);
+  box-shadow: 0 2px 8px #102e2580;
+  transform: rotate(-45deg);
+}
+
+.map-popup b {
+  color: var(--g);
+}
+
+.map-popup p {
+  margin: 4px 0 9px;
+}
+
+.map-popup a,
+.map-popup button {
+  display: inline-block;
+  margin: 2px 6px 2px 0;
+  border: 0;
+  padding: 7px 9px;
+  color: white;
+  background: var(--g);
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.map-place-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 5px 10px;
+  align-items: center;
+  border-bottom: 1px solid #c9cfc2;
+  padding: 9px 0;
+}
+
+.map-place-focus {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  padding: 4px 0;
+  color: var(--ink);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.map-place-focus:disabled {
+  cursor: not-allowed;
+  opacity: .65;
+}
+
+.map-place-number {
+  color: var(--terra);
+  font-size: 10px;
+}
+
+.map-place-label {
+  min-width: 0;
+}
+
+.map-place-label b,
+.map-place-label small {
+  display: block;
+}
+
+.map-place-label b {
+  font-size: 12px;
+}
+
+.map-place-label small,
+.map-pin-note {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.map-google-link {
+  color: var(--terra);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.map-pin-note {
+  grid-column: 2;
+}
+
+.map-attribution {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.map-attribution a {
+  text-decoration: underline;
+}
+
+.detail-photo {
+  display: block;
+  width: 100%;
+  max-height: 360px;
+  margin: 18px 0;
+  object-fit: contain;
+  background: var(--cream);
+}
+
+.detail-category {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.map-place-focus:focus-visible,
+.clear-filters:focus-visible,
+.read-more:focus-visible,
+.dialog-close:focus-visible,
+.detail-map-button:focus-visible,
+.map-popup button:focus-visible {
+  outline: 3px solid #bd754f;
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .filters .search {
+    flex-basis: 100%;
+  }
+
+  .filters select,
+  .clear-filters {
+    flex: 1 1 calc(50% - 8px);
+    max-width: none;
+  }
+
+  .mapbox {
+    height: 340px;
+  }
+
+  .mapbox #heritageMap {
+    min-height: 290px;
+  }
+
+  .map-place-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .filters select,
+  .clear-filters {
+    flex-basis: 100%;
+  }
+
+  .mapbox {
+    height: 310px;
+  }
+}
